@@ -84,6 +84,7 @@ const key = document.getElementById("key");
 console.log(keypressContainer);
 console.log(key);
 
-document.addEventListener("keypress", () => {
-  console.log("le keyPress");
+document.addEventListener("keypress", (e) => {
+  console.log("vous appuyer sur la touche " + e.key);
+  key.textContent = 'La touche est "' + e.key + '"';
 });
