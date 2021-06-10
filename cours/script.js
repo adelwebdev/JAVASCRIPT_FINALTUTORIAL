@@ -45,9 +45,12 @@ const mousemove = document.querySelector(".mousemove");
 console.log(mousemove);
 
 window.addEventListener("mousemove", (e) => {
-  console.log("MOUSEMOVE!!", e);
+  //   console.log("MOUSEMOVE!!", e);
   mousemove.style.left = e.pageX + "px";
   mousemove.style.top = e.pageY + "px";
 });
 
-mousemove.addEventListener("mousedown", () => {});
+window.addEventListener("mousedown", () => {
+  console.log("test!");
+  mousemove.style.transform = "scale(2) translate(-25%, -25%)";
+});
