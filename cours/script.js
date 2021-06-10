@@ -87,4 +87,11 @@ console.log(key);
 document.addEventListener("keypress", (e) => {
   console.log("vous appuyer sur la touche " + e.key);
   key.textContent = 'La touche est "' + e.key + '"';
+  if ((e.key === "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l")) {
+    keypressContainer.style.background = "brown";
+  } else if (
+    (e.key === "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "y")
+  )
+    keypressContainer.style.background = "yellow";
+  else keypressContainer.style.background = "blue";
 });
