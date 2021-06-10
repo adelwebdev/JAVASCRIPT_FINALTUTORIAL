@@ -13,16 +13,36 @@ body {
 .box {
   border: 6px solid white;
   transition: 0.25s ease;
-  background: black;
+  background: rgb(0, 0, 0);
   padding: 10px;
 }
 p {
   visibility: hidden;
   width: 240px;
-  margin: 10 auto 0;
+  margin: 10px auto 0;
+  opacity: 0;
+  transition: 0.6s;
+  transform: translateX(-300px);
 }
 .question-click {
   background: rgb(47, 47, 47);
   border-radius: 30px;
   border: 6px dashed pink;
+}
+.show-response {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+.mousemove {
+  height: 50px;
+  width: 50px;
+  border: 2px solid pink;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: 0.15s;
+  background-color: rgb(203, 238, 48);
+  /* left: 50%; */
+  /* top: 50%; */
 }

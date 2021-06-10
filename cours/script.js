@@ -28,7 +28,24 @@ questionContainer.addEventListener("click", () => {
 
 btn1.addEventListener("click", () => {
   console.log("click");
+  response.classList.toggle("show-response"); //AJOUTER CLASSE
+  //   response.style.visibility = "visible";
+  response.style.background = "green"; //AJOUTER STYLE
 });
 btn2.addEventListener("click", () => {
   console.log("click");
+  response.classList.toggle("show-response");
+  //   response.style.visibility = "visible";
+  response.style.background = "red";
+});
+
+// Mouse Events//...........
+
+const mousemove = document.querySelector(".mousemove");
+console.log(mousemove);
+
+window.addEventListener("mousemove", (e) => {
+  console.log("MOUSEMOVE!!", e);
+  mousemove.style.left = e.pageX + "px";
+  mousemove.style.top = e.pageY + "px";
 });
