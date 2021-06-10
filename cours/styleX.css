@@ -9,6 +9,7 @@ body {
   margin: 0;
   color: whitesmoke;
   min-height: 200vh;
+  overflow-x: hidden;
 }
 .box {
   border: 6px solid white;
@@ -45,4 +46,5 @@ p {
   background-color: rgb(203, 238, 48);
   /* left: 50%; */
   /* top: 50%; */
+  z-index: -1;
 }

@@ -49,3 +49,5 @@ window.addEventListener("mousemove", (e) => {
   mousemove.style.left = e.pageX + "px";
   mousemove.style.top = e.pageY + "px";
 });
+
+mousemove.addEventListener("mousedown", () => {});
