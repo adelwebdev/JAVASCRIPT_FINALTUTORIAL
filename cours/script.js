@@ -54,3 +54,36 @@ window.addEventListener("mousedown", () => {
   console.log("test!");
   mousemove.style.transform = "scale(2) translate(-25%, -25%)";
 });
+window.addEventListener("mouseup", () => {
+  console.log("test!");
+  mousemove.style.transform = "scale(1) translate(-50%, -50%)";
+  mousemove.style.border = "2px solid red";
+});
+
+questionContainer.addEventListener("mouseenter", () => {
+  console.log("This is mouseEnter!");
+  questionContainer.style.background = "salmon";
+  questionContainer.style.color = "black";
+});
+questionContainer.addEventListener("mouseout", () => {
+  console.log("This is mouseOut!");
+  questionContainer.style.background = "black";
+  questionContainer.style.color = "whitesmoke";
+});
+response.addEventListener("mouseover", () => {
+  console.log("and this, mousOver");
+  response.style.transform = "rotate(2deg)";
+});
+
+//*************************************************** */
+//keypress event
+
+const keypressContainer = document.querySelector(".keypress");
+// const key = document.querySelector("#key");
+const key = document.getElementById("key");
+console.log(keypressContainer);
+console.log(key);
+
+document.addEventListener("keypress", () => {
+  console.log("le keyPress");
+});
