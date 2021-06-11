@@ -84,14 +84,60 @@ const key = document.getElementById("key");
 console.log(keypressContainer);
 console.log(key);
 
+const ring = (key) => {
+  const audio = new Audio();
+  audio.src = key + ".mp3";
+  console.log(audio.src);
+  audio.play();
+};
+
 document.addEventListener("keypress", (e) => {
   console.log("vous appuyer sur la touche " + e.key);
   key.textContent = 'La touche est "' + e.key + '"';
-  if ((e.key === "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l")) {
+  if (e.key === "a") {
     keypressContainer.style.background = "brown";
-  } else if (
-    (e.key === "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "y")
-  )
+  } else if (e.key === "m") {
     keypressContainer.style.background = "yellow";
-  else keypressContainer.style.background = "blue";
+  } else {
+    keypressContainer.style.background = "blue";
+  }
+  if (e.key === "z") ring(e.key);
+});
+
+//**********************SCROLL EVENTS *********************//
+
+const nav = document.querySelector("nav");
+console.log(nav);
+
+window.addEventListener("scroll", () => {
+  console.log(window.scrollY);
+
+  if (window.scrollY > 120) {
+    nav.style.top = 0;
+  } else {
+    nav.style.top = "-50px";
+  }
+});
+
+//************FORMULAIRE ***********/
+
+const inputName = document.querySelector("input[type = Text]");
+const select = document.querySelector("select");
+const form = document.querySelector("form");
+console.log(inputName);
+console.log(select);
+console.log(form);
+let pseudo = "";
+let language = ";";
+
+inputName.addEventListener("input", (e) => {
+  console.log("event on input!", e.target.value);
+  pseudo = e.target.value;
+  console.log(pseudo);
+});
+
+select.addEventListener("input", (e) => {
+  console.log(e.target.value);
+  language = e.target.value;
+  console.log(language);
 });
