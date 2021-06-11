@@ -141,3 +141,33 @@ select.addEventListener("input", (e) => {
   language = e.target.value;
   console.log(language);
 });
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log("Submitted!!");
+  console.log(cgv.checked);
+
+  if (cgv.checked) {
+    document.querySelector("form > div").innerHTML = `
+    <h3>Psuedo : ${pseudo} </h3>
+    <h4>Langage préféré : ${language} <h4/>
+    `;
+  } else {
+    alert("Veuillez accepter les CGV");
+  }
+});
+
+// **********************LOAD EVENTS*************************//
+window.addEventListener("load", () => {
+  console.log("charger!");
+});
+
+// ***********************FOR EACH***************************//
+const boxes = document.querySelectorAll(".box");
+console.log(boxes);
+
+boxes.forEach((box) => {
+  box.addEventListener("click", (e) => {
+    console.log(e.target);
+  });
+});
