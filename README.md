@@ -1,1 +1,1 @@
-# JavaScript-full-cours
+# JS-A-to-Z

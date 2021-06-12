@@ -12,9 +12,9 @@ const btn2 = document.getElementById("btn-2");
 const questionContainer = document.querySelector(".click-event");
 const response = document.querySelector("p");
 
-// console.log(questionContainer);
-// console.log(btn1, btn2);
-// console.log(response);
+console.log(questionContainer);
+console.log(btn1, btn2);
+console.log(response);
 
 questionContainer.style.borderRadius = "150px";
 
@@ -27,13 +27,13 @@ questionContainer.addEventListener("click", () => {
 });
 
 btn1.addEventListener("click", () => {
-//   console.log("click");
+  console.log("click");
   response.classList.toggle("show-response"); //AJOUTER CLASSE
   //   response.style.visibility = "visible";
   response.style.background = "green"; //AJOUTER STYLE
 });
 btn2.addEventListener("click", () => {
-//   console.log("click");
+  console.log("click");
   response.classList.toggle("show-response");
   //   response.style.visibility = "visible";
   response.style.background = "red";
@@ -42,7 +42,7 @@ btn2.addEventListener("click", () => {
 // Mouse Events//...........
 
 const mousemove = document.querySelector(".mousemove");
-// console.log(mousemove);
+console.log(mousemove);
 
 window.addEventListener("mousemove", (e) => {
   //   console.log("MOUSEMOVE!!", e);
@@ -51,27 +51,27 @@ window.addEventListener("mousemove", (e) => {
 });
 
 window.addEventListener("mousedown", () => {
-//   console.log("test!");
+  console.log("test!");
   mousemove.style.transform = "scale(2) translate(-25%, -25%)";
 });
 window.addEventListener("mouseup", () => {
-//   console.log("test!");
+  console.log("test!");
   mousemove.style.transform = "scale(1) translate(-50%, -50%)";
   mousemove.style.border = "2px solid red";
 });
 
 questionContainer.addEventListener("mouseenter", () => {
-//   console.log("This is mouseEnter!");
+  console.log("This is mouseEnter!");
   questionContainer.style.background = "salmon";
   questionContainer.style.color = "black";
 });
 questionContainer.addEventListener("mouseout", () => {
-//   console.log("This is mouseOut!");
+  console.log("This is mouseOut!");
   questionContainer.style.background = "black";
   questionContainer.style.color = "whitesmoke";
 });
 response.addEventListener("mouseover", () => {
-//   console.log("and this, mousOver");
+  console.log("and this, mousOver");
   response.style.transform = "rotate(2deg)";
 });
 
@@ -81,8 +81,8 @@ response.addEventListener("mouseover", () => {
 const keypressContainer = document.querySelector(".keypress");
 // const key = document.querySelector("#key");
 const key = document.getElementById("key");
-// console.log(keypressContainer);
-// console.log(key);
+console.log(keypressContainer);
+console.log(key);
 
 const ring = (key) => {
   const audio = new Audio();
@@ -92,7 +92,7 @@ const ring = (key) => {
 };
 
 document.addEventListener("keypress", (e) => {
-//   console.log("vous appuyer sur la touche " + e.key);
+  console.log("vous appuyer sur la touche " + e.key);
   key.textContent = 'La touche est "' + e.key + '"';
   if (e.key === "a") {
     keypressContainer.style.background = "brown";
@@ -107,10 +107,10 @@ document.addEventListener("keypress", (e) => {
 //**********************SCROLL EVENTS *********************//
 
 const nav = document.querySelector("nav");
-// console.log(nav);
+console.log(nav);
 
 window.addEventListener("scroll", () => {
-//   console.log(window.scrollY);
+  console.log(window.scrollY);
 
   if (window.scrollY > 120) {
     nav.style.top = 0;
@@ -124,28 +124,28 @@ window.addEventListener("scroll", () => {
 const inputName = document.querySelector("input[type = Text]");
 const select = document.querySelector("select");
 const form = document.querySelector("form");
-// console.log(inputName);
-// console.log(select);
-// console.log(form);
+console.log(inputName);
+console.log(select);
+console.log(form);
 let pseudo = "";
 let language = ";";
 
 inputName.addEventListener("input", (e) => {
-//   console.log("event on input!", e.target.value);
+  console.log("event on input!", e.target.value);
   pseudo = e.target.value;
-//   console.log(pseudo);
+  console.log(pseudo);
 });
 
 select.addEventListener("input", (e) => {
-//   console.log(e.target.value);
+  console.log(e.target.value);
   language = e.target.value;
-//   console.log(language);
+  console.log(language);
 });
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-//   console.log("Submitted!!");
-//   console.log(cgv.checked);
+  console.log("Submitted!!");
+  console.log(cgv.checked);
 
   if (cgv.checked) {
     document.querySelector("form > div").innerHTML = `
@@ -159,16 +159,16 @@ form.addEventListener("submit", (e) => {
 
 // **********************LOAD EVENTS*************************//
 window.addEventListener("load", () => {
-//   console.log("charger!");
+  console.log("charger!");
 });
 
 // ***********************FOR EACH***************************//
 const boxes = document.querySelectorAll(".box");
-// console.log(boxes);
+console.log(boxes);
 
 boxes.forEach((box) => {
   box.addEventListener("click", (e) => {
-    // console.log(e.target);
+    console.log(e.target);
     e.target.style.transform = "scale(0.7)";
   });
 });
