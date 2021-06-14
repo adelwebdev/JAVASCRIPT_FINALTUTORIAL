@@ -8,6 +8,42 @@
     <link rel="stylesheet" href="../password-maker/style.css" />
   </head>
   <body>
+    <div class="app">
+      <input
+        type="text"
+        id="password-output"
+        value="Générateur de MDP"
+        readonly
+      />
+      <div class="range-container">
+        <input
+          type="range"
+          id="password-lenght"
+          min="4"
+          max="24"
+          value="8"
+          oninput="document.getElementById(display-password-lenght).value=this.value"
+        />
+        <input type="text" id="display-password-lenght" value="8" readonly />
+      </div>
+
+      <div class="checkbox-container">
+        <input type="checkbox" id="lowercase" checked />
+        <label for="lowercase">a-z</label>
+
+        <input type="checkbox" id="uppercase" />
+        <label for="uppercase">A-Z</label>
+
+        <input type="checkbox" id="numbers" />
+        <label for="numbers">0-9</label>
+
+        <input type="checkbox" id="symbols" />
+        <label for="symbols">!-?</label>
+      </div>
+
+      <button id="generateButton">Générer mot de passe</button>
+    </div>
+
     <script src="../password-maker/index.js"></script>
   </body>
 </html>
