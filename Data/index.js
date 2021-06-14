@@ -179,3 +179,43 @@ console.log(newTabler.some((languages) => languages === "c"));
 
 const restTabler = newTabler.splice(1, 4, "python");
 console.log(restTabler);
+console.log(newTabler);
+
+//--------Important--------- manip Array
+
+let arrayNumber = [4, 23, 65, 1, 87];
+console.log(arrayNumber.reduce((x, y) => x + y));
+arrayNumber.push("coucou");
+console.log(arrayNumber);
+
+//--------------------------------------------------
+// FILTER, SORT, MAP -----------------------Important!!!!!!!!!!!!!!!!!!!!!!
+//--------------------------------------------------
+
+console.log(arrayNumber.filter((number) => number > 10));
+console.log(arrayNumber.sort());
+console.log(arrayNumber.sort((a, b) => a - b));
+
+arrayNumber.map((number) => console.log(number));
+arrayNumber.map((number) => (document.body.innerHTML += number));
+arrayNumber.map((number) => (document.body.innerHTML += `<li>${number}</li>`));
+
+document.body.innerHTML += arrayNumber
+  .map((number) => `<li>${number}</li>`)
+  .join("");
+
+//---------METHODE PR LES OBJETS-------------------------------------
+document.body.innerHTML = data
+  // .filter((user) => user.admin === false)    --------------- filtre par status: admin ou non?
+  // .filter((user) => user.pseudo.includes("i"))   ------------------ letrre inclue dans le nom
+  // .sort((a, b) => b.age - a.age)   -------------------- pour classer par age
+  .map(
+    (user) => `
+<div class = "user-card">
+<h2>${user.pseudo}</h2>
+<p>Age : ${user.age} ans</p>
+<p>Status: ${user.admin ? "Modérateur" : "Membre"}</p>
+</div>
+`
+  )
+  .join("");
