@@ -28,7 +28,17 @@ function generatePassword() {
     // console.log(password);
   }
   passwordOutput.value = password;
+
+  passwordOutput.select();
+  document.execCommand("copy");
+
+  generateButton.textContent = "Password copié!";
+
+  setTimeout(() => {
+    generateButton.textContent = "Générer mot de pass";
+  }, 200);
 }
+
 // genratePassword();  ----- appelle de la fonction--------
 // generateButton.addEventListener("click", () => {
 // //   console.log("ca marche!");
