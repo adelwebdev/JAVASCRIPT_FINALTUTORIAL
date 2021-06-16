@@ -219,3 +219,7 @@ document.body.innerHTML = data
 `
   )
   .join("");
+
+// LES DATES EN JAVASCRIPT--------------------------//
+let date = new Date();
+console.log(date);
