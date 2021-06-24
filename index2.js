@@ -61,3 +61,4 @@ h3.forEach((language) => console.log(language.dataset.lang));
 
 let mail = "admb34@yandex.ru";
 console.log(mail.search(/frscceeceom/));
+console.log(mail.replace(/ad/, "de"));
