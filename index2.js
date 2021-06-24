@@ -64,3 +64,11 @@ console.log(mail.search(/frscceeceom/));
 console.log(mail.replace(/ad/, "de"));
 console.log(mail.match(/ADM/i));
 console.log(mail.match(/[zugm]/));
+console.log(mail.match(/[37]/));
+//tous les chiffres-------
+console.log(mail.match(/\a/));
+console.log(mail.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i));
+
+let separator = 324434554433;
+
+console.log(separator.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")); // ------IMPORTANT!!
