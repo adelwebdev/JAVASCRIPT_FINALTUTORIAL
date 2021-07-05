@@ -41,6 +41,25 @@ const init = {
 // fetch("data.json", init).then((res) => console.log(res));
 
 // CRUD => CREATE (POST), READ (GET), UPDATE (PUT), DELETE (DELETE)
+// const init2 = {
+//   method: "POST",
+//   headers: {
+//     "content-type": "application/json",
+//   },
+//   body: JSON.stringify({
+//     pseudo: "From Scratch!",
+//     message: "Salut!",
+//   }),
+//   mode: "cors",
+//   credentials: "same-origin",
+// };
+
+// document.querySelector("form").addEventListener("submit", () => {
+//   fetch("http://localhost:3000/posts", init2).then(() =>
+//     console.log("data envoyée")
+//   );
+// });
+
 const init2 = {
   method: "POST",
   headers: {
@@ -48,14 +67,14 @@ const init2 = {
   },
   body: JSON.stringify({
     pseudo: "From Scratch!",
-    message: "Yo les gens!",
+    age: 34,
   }),
   mode: "cors",
   credentials: "same-origin",
 };
 
 document.querySelector("form").addEventListener("submit", () => {
-  fetch("http://localhost:3000/posts", init2).then(() =>
+  fetch("http://localhost:3000/users/", init2).then(() =>
     console.log("data envoyée")
   );
 });
