@@ -78,3 +78,27 @@ document.querySelector("form").addEventListener("submit", () => {
     console.log("data envoyée")
   );
 });
+
+//  -----------------------------
+// Asynchrone
+//  -----------------------------
+
+setTimeout(() => {
+  console.log("test");
+}, 2000);
+
+// Promise ---------------------
+fetch("monLien").then((res) => res);
+
+// Async / await ----------------
+async function fetchData() {
+  await fetch("monLien");
+  // attend que le await soit exécuté avant sz faire la suite
+  executeFonction();
+}
+
+const fetchData2 = async () => {
+  await fetch("mon lien");
+  // attend que le await soit exécuté avant sz faire la suite
+  executeFonction();
+};
