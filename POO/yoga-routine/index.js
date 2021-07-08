@@ -56,6 +56,16 @@ const utils = {
       });
     });
   },
+  deleteItem: function () {
+    document.querySelectorAll(".deleteBtn").forEach((deleteBtn) => {
+      deleteBtn.addEventListener("click", (e) => {
+        console.log(e);
+        let newArr = exerciceArray.filter((exo) => {
+          exo.pic != e.target.dataset.pic;
+        });
+      });
+    });
+  },
 };
 
 const page = {
