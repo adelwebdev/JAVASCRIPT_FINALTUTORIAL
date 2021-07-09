@@ -1,7 +1,7 @@
 const main = document.querySelector("main");
 // console.log(main);
 
-let exerciceArray = [
+const basicArray = [
   { pic: 0, min: 1 },
   { pic: 1, min: 1 },
   { pic: 2, min: 1 },
@@ -14,7 +14,60 @@ let exerciceArray = [
   { pic: 9, min: 1 },
 ];
 
-class Exercice {}
+let exerciceArray = [];
+
+// Get stored exercices array
+(() => {
+  if (localStorage.exercices) {
+    exercicieArray = JSON.parse(localStorage.exercices);
+  } else {
+    exerciceArray = basicArray;
+  }
+})();
+
+class Exercice {
+  constructor() {
+    this.index = 0;
+    this.minutes = exerciceArray[this.index].min;
+    this.second = 0;
+  }
+  updateCountdown() {
+    this.seconds = this.seconds < 10 ? "0" + this.seconds : this.seconds;
+
+    setTimeout(() => {
+      if (this.minutes === 0 && this.seconds === "00") {
+        this.index++;
+        if (this.index < exerciceArray.length) {
+          this.minutes = exerciceArray[this.index].min;
+          this.seconds = 0;
+          this.updateCountdown();
+        } else {
+          return page.finish;
+        }
+      } else if (this.seconds === "00") {
+        this.minutes--;
+        this.seconds = 59;
+        this.updateCountdown();
+      } else {
+        this.seconds--;
+        this.updateCountdown();
+      }
+    }, 10);
+
+    return (main.innerHTML = `
+      <div class="exercice-container">
+      <p>${this.minutes} : ${this.seconds}</p>
+      <img src="./img/${exerciceArray[this.index].pic}.png"/>
+      <div>${this.index + 1}/${exerciceArray.length}</div>
+      <div>
+      `);
+  }
+  ring() {
+    const audio = new Audio();
+    audio.src = ring.mp3;
+    audio.play();
+  }
+}
 
 const utils = {
   pageContent: function (title, content, btn) {
@@ -29,7 +82,7 @@ const utils = {
           console.log("test");
           if (exo.pic == e.target.id) {
             exo.min = parseInt(e.target.value);
-            console.log(exerciceArray);
+            this.store();
           }
         });
       });
@@ -48,6 +101,7 @@ const utils = {
             ];
             // console.log(exerciceArray);
             page.lobby();
+            this.store();
           } else {
             position++;
             // console.log(position);
@@ -57,14 +111,29 @@ const utils = {
     });
   },
   deleteItem: function () {
-    document.querySelectorAll(".deleteBtn").forEach((deleteBtn) => {
-      deleteBtn.addEventListener("click", (e) => {
-        console.log(e);
-        let newArr = exerciceArray.filter((exo) => {
-          exo.pic != e.target.dataset.pic;
+    document.querySelectorAll(".deleteBtn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        // console.log(e);
+        let newArr = [];
+        exerciceArray.map((exo) => {
+          if (exo.pic != e.target.dataset.pic) {
+            newArr.push(exo);
+          }
         });
+        exerciceArray = newArr;
+        // console.log(exerciceArray);
+        page.lobby();
+        this.store;
       });
     });
+  },
+  reboot: function () {
+    exerciceArray = basicArray;
+    page.lobby;
+    this.store;
+  },
+  store: function () {
+    localStorage.exercices = JSON.stringify(exerciceArray);
   },
 };
 
@@ -94,10 +163,14 @@ const page = {
     );
     utils.handleEventMinutes();
     utils.handleEventArrow();
+    utils.deleteItem();
+    reboot.addEventListener("click", () => utils.reboot());
+    start.addEventListener("click", () => this.routine());
   },
 
   routine: function () {
-    utils.pageContent("Routine", "Exercice avec chrono", null);
+    const exercice = new Exercice();
+    utils.pageContent("Routine", exercice.updateCountdown(), null);
   },
 
   finish: function () {
@@ -106,8 +179,9 @@ const page = {
       "<button id='start'>Recommencer</button>",
       "<button id='reboot' class='btn-reboot'>Réintitialiser<i class='fas fa-times-circle></i></button>"
     );
+    start.addEventListener("lick", () => this.routine());
+    reboot.addEventListener("click", () => utils.reboot());
   },
 };
 
 page.lobby();
-utils.handleEventMinutes();
