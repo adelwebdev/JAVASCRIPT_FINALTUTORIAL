@@ -9,7 +9,11 @@ document.addEventListener("dragover", (e) => {
 });
 
 document.addEventListener("drop", (e) => {
-  e.preventDefault();
-  console.log(e.target);
-  e.target.appendChild(item);
+  if (e.target.getAttribute("data-draggable") == "target") {
+    e.preventDefault();
+    console.log(e.target);
+    e.target.appendChild(item);
+  }
 });
+
+document.addEventListener("dragend", () => (item = null));
