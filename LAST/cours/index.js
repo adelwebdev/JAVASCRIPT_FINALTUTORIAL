@@ -1,3 +1,4 @@
+"use strict";
 // ------------------CANVAS ------------------------------
 
 function draw() {
@@ -23,3 +24,54 @@ function draw() {
   ctx.fill();
 }
 window.addEventListener("load", draw);
+
+// --------------- -T-RY / CATCH ---------------------------
+//------------------------------------------------------------
+try {
+  //---test un block de code----------------
+  maFonction();
+} catch (err) {
+  console.log(err);
+}
+
+function isValidJSON(txt) {
+  try {
+    JSON.parse(txt);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+// console.log(isValidJSON("eeefff"));
+
+// --------------- FINALLY ----------------------
+try {
+  //------test un block de code-----------------
+  maFonction();
+} catch (err) {
+  console.log(err);
+} finally {
+  console.log("on est arrivé au bout! ");
+}
+
+// ------------------Throw ----------------------
+function isNumber(num) {
+  if (isNaN(num)) {
+    throw "Not a number!";
+  } else {
+    console.log("c'est un nombre");
+  }
+  // Plein de code
+}
+try {
+  isNumber("EEE");
+} catch (err) {
+  console.log("Erreur : " + err);
+}
+
+// ----------- Strict Mode ----------------------
+// -----------------------------------------------
+
+voiture = "Toyota";
+console.log(voiture);
